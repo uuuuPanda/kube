@@ -1,0 +1,84 @@
+.container {
+    width: 100vw;
+}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vw;
+    width: 10vw;
+    height: 10vw;
+
+
+    perspective: 900px;
+    perspective-origin: 50%;
+    animation: 10s linear infinite orbit;
+}
+
+.cube {
+    position: relative;
+    transform-style: preserve-3d;
+    animation: 10s linear infinite spin;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg) translateX(200px);
+    }
+    to {
+        transform: rotate(260deg) translateX(200px);
+    }
+
+}  
+
+.cube > div {
+    opacity: 0.5;
+    position: absolute;
+    font-size: 1.5em;
+    height: 10vw;
+    width: 10vw;
+    transition: opacity 300ms;
+}
+
+.cube > div:hover {
+    opacity: 1;
+}
+
+.front {
+    background-color: red;
+    transform: translateZ(10vw);
+}
+
+.back {
+    background-color: green;
+}
+
+.top {
+    background-color: blueviolet;
+    transform: rotateX(90deg);
+    transform-origin: top;
+}
+
+.bottom {
+    background-color: black;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+}
+
+.left {
+    background-color: brown;
+    transform: rotateY(-90deg);
+    transform-origin: left;
+}
+
+.right {
+    background-color: blue;
+    transform: rotateY(90deg);
+    transform-origin: right;
+}
